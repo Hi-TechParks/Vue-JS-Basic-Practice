@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://unpkg.com/vue"></script>
+
+    <title>Vue JS, world!</title>
+
+    <style type="text/css" media="screen">
+      .red{
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+          <!-- Data Binding -->
+          <div id="data_view">
+            {{ msg1 }}<br/>
+            {{ msg2 }}
+          </div>
+
+
+          <!-- Add or Remove Class -->
+          <div id="add_class">
+            <div v-bind:class="myclass">
+              My name is khan
+            </div>
+          </div>
+
+
+          <!-- Add or Remove Title -->
+          <div id="add_title">
+            <div v-bind:title="mytitle">
+              Hover your mouse over me for a few seconds
+              to see my dynamically bound title!
+            </div>
+          </div>
+
+
+          <!-- Conditional View / Display -->
+          <div id="if_condition">
+            <div v-if="view">
+              Now you can see me, It's ok baby?
+            </div>
+          </div>
+
+
+          <!-- Dynamic List Items in Loop -->
+          <div id="list_item">
+            <ol>
+              <li v-for="todo in todos">
+                {{ todo.text }}
+              </li>
+            </ol>
+          </div>
+
+
+          <!-- Dynamic Preview From Input Field -->
+          <div id="dynamic_preview">
+            <input v-model="name" type="text" name="name" v-bind:class="inputclass">
+            <h3>{{ name }}</h3>
+          </div>
+
+
+          <!-- Conditional Visablity -->
+          <div id="show_condition">
+            <div v-show="information">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            </div>
+          </div>
+
+
+          <!-- Click Event on Button -->
+          <div id="click_event">
+            <div v-show="info">
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+            </div>
+
+            <button v-on:click="view_info" v-bind:class="button_class" type="button">Click to Show Info</button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+      
+      // Data Binding
+      var data_view = new Vue({
+        el: '#data_view',
+        data: {
+          msg1: 'Sample Data',
+          msg2: 'Demo Content'
+        }
+      });
+
+
+      // Add or Remove Class
+      var add_class = new Vue({
+        el: '#add_class',
+        data: {
+          myclass: 'red'
+        }
+      });
+
+
+      // Add or Remove Title
+      var add_title = new Vue({
+        el: '#add_title',
+        data: {
+          mytitle: 'My name is khan and I am not a terrorist',
+        }
+      });
+
+
+      // Conditional View / Display
+      var if_condition = new Vue({
+        el: '#if_condition',
+        data: {
+          view: true,
+        }
+      });
+
+
+      // Dynamic List Items in Loop
+      var list_item = new Vue({
+        el: '#list_item',
+        data: {
+          todos: [
+            { text: 'learn js' },
+            { text: 'learn php' },
+            { text: 'learn html' },
+            { text2: 'learn css' }
+          ]
+        }
+      });
+
+
+      // Dynamic Preview From Input Field
+      var dynamic_preview = new Vue({
+        el: '#dynamic_preview',
+        data: {
+          inputclass: 'form-control',
+          name: 'My Name Khan',
+        }
+      });
+
+
+      // Conditional Visablity
+      var show_condition = new Vue({
+        el: '#show_condition',
+        data: {
+          information: true
+        }
+      });
+
+
+      // Click Event on Button 
+      var click_event = new Vue({
+        el: '#click_event',
+        data: {
+          info: false,
+          button_class: 'btn btn-primary',
+        },
+        methods: {
+          view_info: function(){
+            this.info = true;
+          }
+        }
+      });
+
+    </script>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
